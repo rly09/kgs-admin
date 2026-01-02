@@ -10,6 +10,7 @@ import '../auth/admin_login_screen.dart';
 import '../orders/order_management_screen.dart';
 import '../analytics/analytics_dashboard_screen.dart';
 import '../settings/admin_settings_screen.dart';
+import '../payment/payment_qr_screen.dart';
 
 // Provider for total revenue from API
 final totalRevenueProvider = FutureProvider.autoDispose<double>((ref) async {
@@ -85,6 +86,18 @@ class AdminDashboardScreen extends ConsumerWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const AdminSettingsScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.qr_code_2),
+              title: const Text('Online Payment'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentQrScreen(),
                   ),
                 );
               },
