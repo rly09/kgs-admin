@@ -59,9 +59,6 @@ class _AdminLoginScreenState extends ConsumerState<AdminLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text('Admin Login'),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppDimensions.paddingXLarge),
@@ -73,17 +70,9 @@ class _AdminLoginScreenState extends ConsumerState<AdminLoginScreen> {
                 const SizedBox(height: AppDimensions.spaceXXLarge),
                 
                 // Icon
-                Container(
-                  padding: const EdgeInsets.all(AppDimensions.paddingXLarge),
-                  decoration: BoxDecoration(
-                    color: AppColors.primary.withOpacity(0.1),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.admin_panel_settings_rounded,
-                    size: 80,
-                    color: AppColors.primary,
-                  ),
+                SizedBox(
+                  height: 250,
+                  child: Image.asset("assets/app_icon.png")
                 ),
                 
                 const SizedBox(height: AppDimensions.spaceXLarge),
@@ -112,7 +101,6 @@ class _AdminLoginScreenState extends ConsumerState<AdminLoginScreen> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
                     labelText: 'Email',
-                    hintText: 'admin@kpgshop.com',
                     prefixIcon: Icon(Icons.email_rounded),
                   ),
                   validator: Validators.validateEmail,
@@ -126,7 +114,6 @@ class _AdminLoginScreenState extends ConsumerState<AdminLoginScreen> {
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: 'Enter your password',
                     prefixIcon: const Icon(Icons.lock_rounded),
                     suffixIcon: IconButton(
                       icon: Icon(
